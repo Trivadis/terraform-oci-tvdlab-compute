@@ -57,12 +57,16 @@ module "tvdlab-compute" {
   tvd_participants = var.tvd_participants
 
   # host parameters
-  host_enabled   = var.host_enabled
-  host_name      = var.host_name
-  host_image_id  = var.host_image_id
-  host_shape     = var.host_shape
-  host_bootstrap = var.host_bootstrap
-  host_state     = var.host_state
+  host_enabled          = var.host_enabled
+  host_name             = var.host_name
+  host_image_id         = var.host_image_id
+  host_shape            = var.host_shape
+  host_bootstrap        = var.host_bootstrap
+  host_state            = var.host_state
+  host_public_ip        = var.host_public_ip
+  host_private_ip       = var.host_private_ip
+  host_os_version       = var.host_os_version
+  host_boot_volume_size = var.host_boot_volume_size
 }
 
 # display public IPs of hosts

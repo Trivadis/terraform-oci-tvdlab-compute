@@ -18,7 +18,7 @@ Variables for the configuration of the terraform module, defined in [variables](
 | `resource_name`  | A string to name all resource. If undefined it will be derived from compartment name. |        | n/a     |
 | `tags`           | A simple key-value pairs to tag the resources created.                                |        |         |
 
-## host
+## Host
 
 | Parameter               | Description                                                                                          | Values            | Default          |
 |-------------------------|------------------------------------------------------------------------------------------------------|-------------------|------------------|
