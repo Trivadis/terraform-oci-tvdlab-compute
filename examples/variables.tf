@@ -101,7 +101,7 @@ variable "host_os_version" {
 
 variable "host_shape" {
   description = "The shape of compute instance."
-  default     = "VM.Standard.E2.2"
+  default     = "VM.Standard2.2"
   type        = string
 }
 
