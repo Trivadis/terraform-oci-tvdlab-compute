@@ -22,11 +22,11 @@ tenancy_ocid              = ""
 user_ocid                 = ""
 
 # general oci parameters ----------------------------------------------------
-compartment_id            = ""
-label_prefix              = "none"
-resource_name             = ""
-availability_domain       = 1
-tags                      = {}
+compartment_id  = ""
+label_prefix    = "none"
+resource_name   = ""
+ad_index        = 1
+tags            = {}
 
 # Host Parameter ------------------------------------------------------------
 host_enabled              = false

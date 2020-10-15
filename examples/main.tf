@@ -47,9 +47,9 @@ module "tvdlab-compute" {
 
   # - Optional Parameters ---------------------------------------------------
   # general oci parameters
-  availability_domain = var.availability_domain
-  label_prefix        = var.label_prefix
-  tags                = var.tags
+  ad_index      = var.ad_index
+  label_prefix  = var.label_prefix
+  tags          = var.tags
 
   # Lab Configuration
   resource_name    = var.resource_name

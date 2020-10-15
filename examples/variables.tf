@@ -44,8 +44,8 @@ variable "resource_name" {
   default     = ""
 }
 
-variable "availability_domain" {
-  description = "the AD to place the host"
+variable "ad_index" {
+  description = "The index of the availability domain. This is used to identify the availability_domain place the compute instances."
   default     = 1
   type        = number
 }
@@ -116,6 +116,11 @@ variable "host_bootstrap" {
   type        = string
 }
 
+variable "host_subnet" {
+  description = "List of subnets for the host hosts"
+  type        = list(string)
+}
+
 variable "ssh_public_key" {
   description = "the content of the ssh public key used to access the host. set this or the ssh_public_key_path"
   default     = ""
@@ -126,11 +131,6 @@ variable "ssh_public_key_path" {
   description = "path to the ssh public key used to access the host. set this or the ssh_public_key"
   default     = ""
   type        = string
-}
-
-variable "host_subnet" {
-  description = "List of subnets for the host hosts"
-  type        = list(string)
 }
 
 # Trivadis LAB specific parameter -------------------------------------------

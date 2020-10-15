@@ -49,7 +49,7 @@ Specific parameter to configure the Trivadis LAB environment.
 
 | Parameter             | Description                                                                                    | Values | Default |
 |-----------------------|------------------------------------------------------------------------------------------------|--------|---------|
-| `availability_domain` | Effective name of the availability domain based on `var.region` and `var.availability_domain`. |        |         |
+| `availability_domain` | Effective name of the availability domain based on `var.region` and `var.ad_index`. |        |         |
 | `host_image_id`       | Tenancy OCID where to create the resources. Required when configuring provider.                |        |         |
 | `resource_name`       | Local variable containing either the value of `var.resource_name` or the compartment name.     |        |         |
 | `resource_shortname`  | Short, lower case version of the `resource_name` variable.                                     |        |         |
