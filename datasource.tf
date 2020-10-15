@@ -34,6 +34,7 @@ data "oci_core_images" "oracle_images" {
   compartment_id           = var.compartment_id
   operating_system         = var.host_os
   operating_system_version = var.host_os_version
+  shape                    = var.host_shape
   sort_by                  = "TIMECREATED"
 }
 # --- EOF -------------------------------------------------------------------
