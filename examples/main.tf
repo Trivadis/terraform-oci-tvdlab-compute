@@ -65,6 +65,7 @@ module "tvdlab-compute" {
   host_state            = var.host_state
   host_public_ip        = var.host_public_ip
   host_private_ip       = var.host_private_ip
+  host_os               = var.host_os
   host_os_version       = var.host_os_version
   host_boot_volume_size = var.host_boot_volume_size
 }
