@@ -87,8 +87,14 @@ variable "host_image_id" {
   type        = string
 }
 
+variable "host_os" {
+  description = "Base OS for the host."
+  default     = "Oracle Linux"
+  type        = string
+}
+
 variable "host_os_version" {
-  description = "Define the default OS version for Oracle Linux."
+  description = "Define Base OS version for the host."
   default     = "7.8"
   type        = string
 }

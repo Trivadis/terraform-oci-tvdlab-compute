@@ -29,7 +29,8 @@ Variables for the configuration of the terraform module, defined in [variables](
 | `host_name`             | A Name portion of host.                                                                              |                   | db               |
 | `host_public_ip`        | whether to assigne a public IP or not.                                                               | true/false        | false            |
 | `host_private_ip`       | Private IP for the host.                                                                             |                   | 10.0.1.6         |
-| `host_os_version`       | Define the default OS version for Oracle Linux. This is used to identify the default `host_image_id` |                   | 7.8              |
+| `host_os`               | Base OS for the host. This is used to identify the default `bastion_image_id`               |                   | Oracle Linux     |
+| `host_os_version`       | Base OS version for the host. This is used to identify the default `bastion_image_id`       |                   | 7.8              |
 | `host_shape`            | The shape of compute instance.                                                                       |                   | VM.Standard.E2.1 |
 | `host_boot_volume_size` | Size of the boot volume.                                                                             |                   | 150              |
 | `host_state`            | Whether host should be either RUNNING or STOPPED state.                                              | RUNNING / STOPPED | RUNNING          |
