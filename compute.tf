@@ -44,7 +44,7 @@ resource "oci_core_instance" "compute" {
       etc_hosts               = base64gzip(file(local.hosts_file))
       bootstrap_windows_host  = base64gzip(file(local.bootstrap_windows_host))
       bootstrap_linux_host    = base64gzip(file(local.bootstrap_linux_host))
-    }
+    })
   }
 
   source_details {
