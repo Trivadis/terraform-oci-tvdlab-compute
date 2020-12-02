@@ -1,0 +1,60 @@
+#cloud-config
+# ----------------------------------------------------------------------------
+# Trivadis AG, Infrastructure Managed Services
+# Saegereistrasse 29, 8152 Glattbrugg, Switzerland
+# ----------------------------------------------------------------------------
+# Name.......: linux_host.yaml 
+# Author.....: Stefan Oehrli (oes) stefan.oehrli@trivadis.com
+# Editor.....: Stefan Oehrli
+# Date.......: 2020.12.02
+# Revision...: 
+# Purpose....: cloud-init configuration file for linux hosts
+# Notes......: --
+# Reference..: --
+# ----------------------------------------------------------------------------
+# --- Install/upgrade yum packages -------------------------------------------
+package_upgrade: ${yum_upgrade} # Enable yum update
+packages:                       # install additional packages
+  - git                         # Fast Version Control System
+  - tmux                        # A terminal multiplexer
+  - putty                       # SSH, Telnet and Rlogin client
+  - jq                          # Command-line JSON processor
+# --- EOF Install/upgrade yum packages ---------------------------------------
+
+# --- Create users -----------------------------------------------------------
+# users:
+#   - default
+#   - name: ${oracle_user}
+#     gecos: Oracle OS User
+#     sudo: ["ALL=(ALL) NOPASSWD:ALL"]
+#     lock_passwd: true
+# --- EOF Create users -------------------------------------------------------
+
+# --- Update remote files ----------------------------------------------------
+write_files:
+# Add oracle SSH authorized keys ------------------------------------------
+  # - path: "/home/${oracle_user}/.ssh/authorized_keys"
+  #   permissions: "0600"
+  #   encoding: "gzip+base64"
+  #   content: |
+  #     ${authorized_keys}
+
+# Append /etc/hosts with custom hosts entries --------------------------------
+  - path: /etc/hosts
+    append: true
+    content: |
+      ${etc_hosts}
+
+# Add bootstrap script -------------------------------------------------------
+  - path: "/root/bootstrap_linux_host.sh"
+    permissions: "0750"
+    encoding: "gzip+base64"
+    content: |
+      ${bootstrap_linux_host}
+# --- EOF Update remote files ------------------------------------------------
+
+# --- Run configuration commands ---------------------------------------------
+runcmd:
+  - /root/bootstrap_linux_host.sh
+# --- EOF Run configuration commands -----------------------------------------
+# --- EOF --------------------------------------------------------------------

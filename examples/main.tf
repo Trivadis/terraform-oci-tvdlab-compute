@@ -34,7 +34,7 @@ provider "oci" {
 
 module "tvdlab-compute" {
   source  = "Trivadis/tvdlab-compute/oci"
-  version = "1.0.0"
+  version = ">= 1.0.0"
 
   # - Mandatory Parameters --------------------------------------------------
   tenancy_ocid   = var.tenancy_ocid

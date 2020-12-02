@@ -99,6 +99,12 @@ variable "host_os_version" {
   type        = string
 }
 
+variable "yum_upgrade" {
+  description = "Enable YUM upgrade during bootstrap / cloud-init"
+  default     = true
+  type        = bool
+}
+
 variable "host_shape" {
   description = "The shape of compute instance."
   default     = "VM.Standard2.2"

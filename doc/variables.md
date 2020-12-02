@@ -1,6 +1,13 @@
 # Module Variables
 
-Variables for the configuration of the terraform module, defined in [variables](../variables.tf).
+Variables for the configuration of the terraform module, defined in [variables](../variables.tf). Whereby the following are mandatory:
+
+* `tenancy_ocid` 
+* `region` Region where to provision the VCN.
+* `compartment_id` OCID of the compartment where to create all resources.
+* `ssh_public_key` The content of the ssh public key used to access the host. Either `ssh_public_key` or `ssh_public_key_path` must be specified.
+* `ssh_public_key_path` path to the ssh public key used to access the host. Either `ssh_public_key` or `ssh_public_key_path` must be specified.
+* `host_subnet` List of subnets for the host hosts
 
 ## Provider
 
@@ -37,6 +44,7 @@ Variables for the configuration of the terraform module, defined in [variables](
 | `host_subnet`           | List of subnets for the hosts                                                                                                                                                   |                   | n/a            |
 | `ssh_public_key_path`   | Path to the ssh public key used to access the host. set this or the `ssh_public_key`                                                                                            |                   | n/a            |
 | `ssh_public_key`        | The content of the ssh public key used to access the host. set this or the `ssh_public_key_path`                                                                                |                   | n/a            |
+| `yum_upgrade`              | Enable YUM upgrade during bootstrap / cloud-init                                                           | true/false        | true                                 |
 
 ## Trivadis LAB
 
