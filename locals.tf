@@ -22,10 +22,7 @@ locals {
   hosts_file              = var.hosts_file == "" ? "${path.module}/etc/hosts.template" : var.hosts_file
   ssh_public_key_path     = var.ssh_public_key_path == "" ? "${path.module}/etc/authorized_keys.template" : var.ssh_public_key_path
   host_bootstrap_template = var.host_os == "Windows" ? "${path.module}/cloudinit/windows_host.yaml" : "${path.module}/cloudinit/linux_host.yaml" 
-  # bootstrap_custom_host   = var.host_os == "Windows" && ? 
-  # base64gzip(file("${path.module}/scripts/bootstrap_windows_host.template.ps1"))
-  #     bootstrap_linux_host    = base64gzip(file("${path.module}/scripts/bootstrap_linux_host.template.sh"))
-  #default_private_dns = cidrhost(cidrsubnet(var.vcn_cidr, var.private_newbits, var.private_netnum), var.tvd_dns_hostnum)
-  #vcn_cidr            = data.oci_core_vcn.vcn.cidr_block
+  bootstrap_windows_host  = base64gzip(file("${path.module}/scripts/bootstrap_windows_host.template.ps1"))
+  bootstrap_linux_host    = base64gzip(file("${path.module}/scripts/bootstrap_linux_host.template.sh"))
 }
 # --- EOF -------------------------------------------------------------------
