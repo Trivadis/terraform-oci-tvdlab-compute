@@ -99,6 +99,12 @@ variable "host_os_version" {
   type        = string
 }
 
+variable "hosts_file" {
+  description = "path to a custom /etc/hosts which has to be appended"
+  default     = ""
+  type        = string
+}
+
 variable "yum_upgrade" {
   description = "Enable YUM upgrade during bootstrap / cloud-init"
   default     = true

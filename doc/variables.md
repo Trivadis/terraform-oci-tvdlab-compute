@@ -45,6 +45,7 @@ Variables for the configuration of the terraform module, defined in [variables](
 | `ssh_public_key_path`   | Path to the ssh public key used to access the host. set this or the `ssh_public_key`                                                                                            |                   | n/a            |
 | `ssh_public_key`        | The content of the ssh public key used to access the host. set this or the `ssh_public_key_path`                                                                                |                   | n/a            |
 | `yum_upgrade`              | Enable YUM upgrade during bootstrap / cloud-init                                                           | true/false        | true                                 |
+| `hosts_file`               | Path to a custom hosts file which will be appended to `/etc/hosts`                                         |                   | `hosts.template`                     |
 
 ## Trivadis LAB
 
