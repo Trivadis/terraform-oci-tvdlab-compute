@@ -72,6 +72,24 @@ variable "linux_host_boot_volume_size" {
   type        = number
 }
 
+variable "linux_volume_enabled" {
+  description = "whether to create an additional volume or not."
+  default     = false
+  type        = bool
+}
+
+variable "linux_volume_attachment_type" {
+  description = "The type of volume."
+  default     = "paravirtualized"
+  type        = string
+}
+
+variable "linux_volume_size" {
+  description = "Size of the additional volume."
+  default     = 256
+  type        = number
+}
+
 variable "linux_host_state" {
   description = "Whether the host should be either RUNNING or STOPPED state. "
   default     = "RUNNING"
@@ -131,6 +149,9 @@ module "tvdlab-linux-host" {
   host_os               = var.linux_host_os
   host_os_version       = var.linux_host_os_version
   host_boot_volume_size = var.linux_host_boot_volume_size
+  host_volume_enabled   = var.linux_volume_enabled
+  host_volume_attachment_type = var.linux_volume_attachment_type
+  host_volume_size      = var.linux_volume_size
 }
 # ---------------------------------------------------------------------------
 # - Outputs

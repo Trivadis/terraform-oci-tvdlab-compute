@@ -123,6 +123,24 @@ variable "host_boot_volume_size" {
   type        = number
 }
 
+variable "host_volume_enabled" {
+  description = "whether to create an additional volume or not."
+  default     = false
+  type        = bool
+}
+
+variable "host_volume_attachment_type" {
+  description = "The type of volume."
+  default     = "paravirtualized"
+  type        = string
+}
+
+variable "host_volume_size" {
+  description = "Size of the additional volume."
+  default     = 256
+  type        = number
+}
+
 variable "host_state" {
   description = "Whether the host should be either RUNNING or STOPPED state. "
   default     = "RUNNING"
