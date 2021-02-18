@@ -38,15 +38,20 @@ resource "oci_core_instance" "compute" {
 
   metadata = {
     ssh_authorized_keys = var.ssh_public_key != "" ? var.ssh_public_key : file(var.ssh_public_key_path)
-     user_data = var.host_bootstrap != "" ? var.host_bootstrap : base64encode(templatefile(local.host_bootstrap_template, {
-      yum_upgrade               = var.yum_upgrade
-      authorized_keys           = base64gzip(file(local.ssh_public_key_path))
-      etc_hosts                 = base64gzip(file(local.hosts_file))
-      bootstrap_windows_host    = local.bootstrap_windows_host
-      bootstrap_linux_host      = local.bootstrap_linux_host
-    })) 
+    user_data = var.host_bootstrap != "" ? var.host_bootstrap : base64encode(templatefile(local.host_bootstrap_template, {
+      yum_upgrade            = var.yum_upgrade
+      authorized_keys        = base64gzip(file(local.ssh_public_key_path))
+      etc_hosts              = base64gzip(file(local.hosts_file))
+      bootstrap_windows_host = local.bootstrap_windows_host
+      bootstrap_linux_host   = local.bootstrap_linux_host
+    }))
   }
-  
+
+  shape_config {
+    memory_in_gbs = var.host_memory_in_gbs
+    ocpus         = var.host_ocpus
+  }
+
   source_details {
     source_type             = "image"
     source_id               = local.host_image_id

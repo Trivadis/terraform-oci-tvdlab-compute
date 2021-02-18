@@ -17,22 +17,22 @@
 # display public IPs
 output "host_id" {
   description = "OCID of the server instances."
-  value = oci_core_instance.compute.*.id
+  value       = oci_core_instance.compute.*.id
 }
 
 output "host_name" {
   description = "The hostname for VNIC's primary private IP of the server instances."
-  value = oci_core_instance.compute.*.hostname_label
+  value       = oci_core_instance.compute.*.hostname_label
 }
 
 output "host_public_ip" {
   description = "The public IP address of the server instances."
-  value = oci_core_instance.compute.*.public_ip
+  value       = oci_core_instance.compute.*.public_ip
 }
 
 output "host_private_ip" {
   description = "The private IP address of the server instances."
-  value = oci_core_instance.compute.*.private_ip
+  value       = oci_core_instance.compute.*.private_ip
 }
 
 # --- EOF -------------------------------------------------------------------

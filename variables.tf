@@ -112,9 +112,21 @@ variable "yum_upgrade" {
 }
 
 variable "host_shape" {
-  description = "The shape of compute instance."
-  default     = "VM.Standard2.2"
+  description = "The shape of admin instance."
+  default     = "VM.Standard.E3.Flex"
   type        = string
+}
+
+variable "host_ocpus" {
+  description = "The ocpus for the shape."
+  default     = 1
+  type        = number
+}
+
+variable "host_memory_in_gbs" {
+  description = "The memory in gbs for the shape."
+  default     = 8
+  type        = number
 }
 
 variable "host_boot_volume_size" {
