@@ -41,7 +41,7 @@ resource "oci_core_instance" "compute" {
     user_data = var.host_bootstrap != "" ? var.host_bootstrap : base64encode(templatefile(local.host_bootstrap_template, {
       yum_upgrade            = var.yum_upgrade
       authorized_keys        = base64gzip(file(local.ssh_public_key_path))
-      etc_hosts              = base64gzip(file(local.hosts_file))
+      etc_hosts              = base64gzip(local.hosts_file)
       bootstrap_windows_host = local.bootstrap_windows_host
       bootstrap_linux_host   = local.bootstrap_linux_host
     }))
