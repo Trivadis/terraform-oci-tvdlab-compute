@@ -21,6 +21,7 @@ locals {
   host_image_id           = var.host_image_id == "CENTOS" || var.host_image_id == "OEL" || var.host_image_id == "WIN" ? data.oci_core_images.oracle_images.images.0.id : var.host_image_id
   hosts_file              = var.hosts_file == "" ? "${path.module}/etc/hosts.template" : var.hosts_file
   ssh_public_key_path     = var.ssh_public_key_path == "" ? "${path.module}/etc/authorized_keys.template" : var.ssh_public_key_path
+  ssh_authorized_keys     = var.ssh_public_key != "" ? var.ssh_public_key : file(local.ssh_public_key_path)
   host_bootstrap_template = var.host_os == "Windows" ? "${path.module}/cloudinit/windows_host.yaml" : "${path.module}/cloudinit/linux_host.yaml"
   bootstrap_windows_host  = base64gzip(file("${path.module}/scripts/bootstrap_windows_host.template.ps1"))
   bootstrap_linux_host    = base64gzip(file("${path.module}/scripts/bootstrap_linux_host.template.sh"))
