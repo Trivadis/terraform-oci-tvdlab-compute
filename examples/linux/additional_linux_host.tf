@@ -161,6 +161,12 @@ variable "host_volume_enabled" {
   type        = bool
 }
 
+variable "host_volume_source" {
+  description = "Source block volume to clone from."
+  default     = ""
+  type        = string
+}
+
 variable "host_volume_attachment_type" {
   description = "The type of volume."
   default     = "paravirtualized"
@@ -267,6 +273,7 @@ module "tvdlab-linux-host" {
   host_os_version             = var.linux_host_os_version
   host_boot_volume_size       = var.linux_host_boot_volume_size
   host_volume_enabled         = var.linux_volume_enabled
+  host_volume_source          = var.linux_volume_source
   host_volume_attachment_type = var.linux_volume_attachment_type
   host_volume_size            = var.linux_volume_size
 }

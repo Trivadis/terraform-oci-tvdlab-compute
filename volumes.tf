@@ -22,6 +22,14 @@ resource "oci_core_volume" "CreateVolume" {
   display_name        = var.label_prefix == "none" ? format("${local.resource_shortname}-${var.host_name}%02d-volume", count.index) : format("${var.label_prefix}-${local.resource_shortname}-${var.host_name}%02d-volume", count.index)
   size_in_gbs         = var.host_volume_size
   freeform_tags       = var.tags
+
+  dynamic "source_details" {
+    for_each = var.host_volume_source == "" ? [] : [1]
+    content {
+      id   = var.host_volume_source
+      type = "volume"
+    }
+  }
 }
 
 resource "oci_core_volume_attachment" "CreateVolumeAttachment" {

@@ -141,6 +141,12 @@ variable "host_volume_enabled" {
   type        = bool
 }
 
+variable "host_volume_source" {
+  description = "Source block volume to clone from."
+  default     = ""
+  type        = string
+}
+
 variable "host_volume_attachment_type" {
   description = "The type of volume."
   default     = "paravirtualized"

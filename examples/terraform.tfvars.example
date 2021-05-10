@@ -39,6 +39,7 @@ host_os_version             = "7.8"
 host_shape                  = "VM.Standard2.2"
 host_boot_volume_size       = 150
 host_volume_enabled         = false
+host_volume_source          = ""
 host_volume_attachment_type = "paravirtualized"
 host_volume_size            = 256
 host_state                  = "RUNNING"
